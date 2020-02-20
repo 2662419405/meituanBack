@@ -30,7 +30,7 @@
   },
   "config": {
     "nuxt": {
-      "host": "shtodream.cn",
+      "host": "127.0.0.1",
       "port": "9988"
     }
   }
