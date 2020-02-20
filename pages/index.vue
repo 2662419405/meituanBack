@@ -1,50 +1,68 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-    </div>
-  </div>
+  <el-container>
+    <!-- 头部展示 -->
+    <el-header class="bgColor">
+      <el-menu
+        :default-active="activeIndex2"
+        class="el-menu-demo"
+        mode="horizontal"
+        @select="handleSelect"
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#ffd04b"
+      >
+        <el-menu-item index="1" @click=" $router.push('/') ">
+          <span>首页展示</span>
+        </el-menu-item>
+        <el-menu-item index="2" @click=" $router.push('/user') ">
+          <span>用户展示</span>
+        </el-menu-item>
+        <el-menu-item index="3" @click=" $router.push('/shang') ">
+          <span>商品管理</span>
+        </el-menu-item>
+        <el-menu-item index="4" @click=" $router.push('/order') ">
+          <span>订单管理</span>
+        </el-menu-item>
+      </el-menu>
+    </el-header>
+    <el-container>
+      <el-main>
+        <!-- 子组件 -->
+        <transition name="fade">
+          <nuxt-child></nuxt-child>
+        </transition>
+      </el-main>
+      <el-aside>
+        <!-- 右侧个人展示 -->
+        <right></right>
+      </el-aside>
+    </el-container>
+  </el-container>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Right from './right'
 
 export default {
   components: {
-    Logo
+    Right
+  },
+  head: {
+    title: '首页'
+  },
+  data() {
+    return {
+      activeIndex: '1',
+      activeIndex2: '1'
+    }
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath)
+    }
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
