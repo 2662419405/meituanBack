@@ -27,5 +27,11 @@
     "babel-jest": "^24.1.0",
     "jest": "^24.1.0",
     "vue-jest": "^4.0.0-0"
+  },
+  "config": {
+    "nuxt": {
+      "host": "shtodream.cn",
+      "port": "9988"
+    }
   }
 }
