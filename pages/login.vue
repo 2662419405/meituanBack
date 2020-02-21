@@ -8,14 +8,23 @@
       label-width="70px"
       class="demo-ruleForm"
     >
+      <h2 class="zhong">美团后台管理系统</h2>
       <el-form-item label="用户名" prop="user">
-        <el-input type="text" v-model="ruleForm.user" autocomplete="off"></el-input>
+        <el-input type="text" v-model="ruleForm.user" autocomplete="off" placeholder="默认用户名: sh"></el-input>
       </el-form-item>
       <el-form-item label="密码" prop="password">
-        <el-input type="password" v-model="ruleForm.password" autocomplete="off"></el-input>
+        <el-input
+          type="password"
+          v-model="ruleForm.password"
+          autocomplete="off"
+          placeholder="默认密码: sh"
+        ></el-input>
       </el-form-item>
       <el-form-item label="验证码" prop="code">
-        <el-input v-model.number="ruleForm.code"></el-input>
+        <el-input v-model.number="ruleForm.code" class="ban"></el-input>
+        <div class="code" @click="refreshCode">
+          <v-sidentify :identifyCode="identifyCode"></v-sidentify>
+        </div>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
@@ -26,34 +35,32 @@
 </template>
 
 <script>
+import Sidentify from '../components/code'
+import { mapMutations } from 'vuex'
 export default {
   layout: 'login',
+  head: {
+    title: '登录页面'
+  },
+  components: {
+    'v-sidentify': Sidentify
+  },
   created() {
     this.init()
   },
   destroyed() {
     this.clearInit()
   },
-  head: {
-    title: '登录页面'
-  },
   mounted: function() {
-    let imgs = []
-
-    for (let img of imgs) {
-      let image = new Image()
-      image.src = img
-      image.onload = () => {
-        console.log(this.count)
-        this.count++
-      }
-    }
+    this.identifyCode = ''
+    this.makeCode(this.identifyCodes, 4)
   },
   methods: {
+    ...mapMutations('users', ['add']),
     init() {
       this.timer = setInterval(() => {
         this.index++
-      }, 7000)
+      }, 5000)
     },
     clearInit() {
       clearInterval(this.timer)
@@ -61,33 +68,53 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          alert('submit!')
+          // 正常情况下调用后台api接口
+          if (this.ruleForm.user === 'sh' && this.ruleForm.password === 'sh') {
+            this.$message({
+              message: '登录成功,进行跳转',
+              type: 'success'
+            })
+            window.localStorage.setItem('token', true) // 存储token和用户状态
+            this.add({
+              name: this.ruleForm.user,
+              password: this.ruleForm.password
+            })
+            this.$router.push('/')
+          } else {
+            this.$message.error('账号密码错误')
+          }
         } else {
-          console.log('error submit!!')
           return false
         }
       })
     },
     resetForm(formName) {
       this.$refs[formName].resetFields()
+    },
+    randomNum(min, max) {
+      return Math.floor(Math.random() * (max - min) + min)
+    },
+    refreshCode() {
+      this.identifyCode = ''
+      this.makeCode(this.identifyCodes, 4)
+    },
+    makeCode(o, l) {
+      for (let i = 0; i < l; i++) {
+        this.identifyCode += this.identifyCodes[
+          this.randomNum(0, this.identifyCodes.length)
+        ]
+      }
     }
   },
   data() {
     var checkCode = (rule, value, callback) => {
       if (!value) {
         return callback(new Error('验证码不能为空'))
+      } else if (value != this.identifyCode) {
+        return callback(new Error('验证码错误'))
+      } else {
+        callback()
       }
-      setTimeout(() => {
-        if (!Number.isInteger(value)) {
-          callback(new Error('请输入数字值'))
-        } else {
-          if (value < 18) {
-            callback(new Error('必须年满18岁'))
-          } else {
-            callback()
-          }
-        }
-      }, 1000)
     }
     var validateUser = (rule, value, callback) => {
       if (value === '') {
@@ -105,6 +132,8 @@ export default {
     }
     return {
       index: 0,
+      identifyCodes: '1234567890',
+      identifyCode: '', // 验证码答案
       bgCover: [
         '/image/o_770659.jpg',
         '/image/o_899029.jpg',
@@ -153,14 +182,27 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.ban {
+  width: 50%;
+  position: relative;
+  top: -10px;
+}
 .demo-ruleForm {
   font-weight: bold;
   width: 350px;
-  height: 230px;
+  height: 300px;
   padding: 30px;
   box-sizing: content-box;
   margin: auto;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
+}
+.zhong {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.code {
+  display: inline-block;
+  cursor: pointer;
 }
 </style>

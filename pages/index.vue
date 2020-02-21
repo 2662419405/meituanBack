@@ -23,6 +23,19 @@
         <el-menu-item index="4" @click=" $router.push('/order') ">
           <span>订单管理</span>
         </el-menu-item>
+        <el-menu-item class="right">
+          <el-dropdown @command="handleCommand">
+            <span class="el-dropdown-link">
+              尊敬的:
+              <strong class="zuoyou">{{userinfo.name}}</strong>
+              <i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item icon="el-icon-s-tools" command="setting">设置</el-dropdown-item>
+              <el-dropdown-item icon="el-icon-close" command="logout">退出</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </el-menu-item>
       </el-menu>
     </el-header>
     <el-container>
@@ -37,13 +50,29 @@
         <right></right>
       </el-aside>
     </el-container>
+    <el-dialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
+      <span>这是一段信息</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="loginHandler">确 定</el-button>
+      </span>
+    </el-dialog>
   </el-container>
 </template>
 
 <script>
 import Right from './right'
+import { mapState } from 'vuex'
 
 export default {
+  async asyncData({ store, redirect }) {
+    if (
+      store.state.users.userinfo &&
+      store.state.users.userinfo.name !== 'sh'
+    ) {
+      // return redirect('/login') 最后加进去
+    }
+  },
   components: {
     Right
   },
@@ -53,15 +82,40 @@ export default {
   data() {
     return {
       activeIndex: '1',
-      activeIndex2: '1'
+      activeIndex2: '1',
+      dialogVisible: false
     }
   },
+  computed: {
+    ...mapState('users', ['userinfo'])
+  },
   methods: {
-    handleSelect(key, keyPath) {
-    }
+    loginHandler() {
+      // 退出登录
+      this.$router.push('/login')
+    },
+    handleCommand(command) {
+      if (command === 'logout') {
+        this.dialogVisible = true
+      }
+      if (command === 'setting') {
+        console.log(this.$router)
+        this.$router.push({ path: '/setting' })
+      }
+    },
+    handleClose(done) {
+      this.dialogVisible = false
+    },
+    handleSelect(key, keyPath) {}
   }
 }
 </script>
 
 <style>
+.el-dropdown-link {
+  color: #ffffff;
+}
+.right {
+  float: right !important;
+}
 </style>
