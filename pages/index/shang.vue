@@ -3,7 +3,11 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head: {
+    title: '商品页面'
+  }
+}
 </script>
 
 <style>
