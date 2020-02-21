@@ -42,10 +42,12 @@
       <el-main>
         <!-- 子组件 -->
         <transition name="fade">
-          <nuxt-child></nuxt-child>
+          <div class="main">
+            <nuxt-child></nuxt-child>
+          </div>
         </transition>
       </el-main>
-      <el-aside>
+      <el-aside width="400px">
         <!-- 右侧个人展示 -->
         <right></right>
       </el-aside>
@@ -112,6 +114,10 @@ export default {
 </script>
 
 <style>
+.main {
+  width: 1000px;
+  margin: 0 auto;
+}
 .el-dropdown-link {
   color: #ffffff;
 }

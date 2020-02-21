@@ -6,3 +6,36 @@
 .page-leave-active {
   opacity: 0;
 }
+body {
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  background-color: #e5e5e5;
+}
+
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #222222;
+}
+
+img {
+  vertical-align: middle;
+}
+
+@keyframes dong {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

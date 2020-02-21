@@ -1,5 +1,5 @@
 <template>
-  <div>商品页面</div>
+  <div class="main-container">商品页面</div>
 </template>
 
 <script>

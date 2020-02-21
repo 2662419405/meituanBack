@@ -23,11 +23,14 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['element-ui/lib/theme-chalk/index.css', 'assets/main.css'],
+  css: [
+    'element-ui/lib/theme-chalk/index.css',
+    'assets/main.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/route', '@/plugins/element-ui'],
+  plugins: [{ src: '~/plugins/route', ssr: false }, '@/plugins/element-ui'],
   /*
    ** Nuxt.js dev-modules
    */

@@ -9,6 +9,7 @@
       <img src="/image/o_74911.jpg" alt />
       <img src="/image/o_770659.jpg" alt />
       <img src="/image/o_899029.jpg" alt />
+      <img src="/image/sh.jpg" alt />
     </div>
     <div v-show="show">
       <nuxt-child />
@@ -20,6 +21,7 @@ export default {
   mounted() {
     var _this = this
     let imgs = document.querySelectorAll('img')
+    this.num = imgs.length
     Array.from(imgs).forEach(item => {
       let img = new Image()
       img.onload = () => {
@@ -34,6 +36,7 @@ export default {
       count: 0,
       show: false,
       percentage: 0,
+      num: 0,
       colors: [
         { color: '#f56c6c', percentage: 20 },
         { color: '#e6a23c', percentage: 40 },
@@ -45,7 +48,7 @@ export default {
   },
   watch: {
     count(val, oldval) {
-      if (val == 3) {
+      if (val == this.num) {
         this.show = true
       }
     }
