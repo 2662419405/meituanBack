@@ -1,6 +1,7 @@
 <template>
   <div class="containerFlow">
     <div class="containerRight">
+      <span class="right_title">残梦</span>
       <!-- 头像区域 -->
       <div class="rightAvatar">
         <img src="@/static/image/sh.jpg" class="rightAvatarImg" />

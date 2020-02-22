@@ -59,11 +59,15 @@
         <el-button type="primary" @click="loginHandler">确 定</el-button>
       </span>
     </el-dialog>
+    <return />
+    <footer-head />
   </el-container>
 </template>
 
 <script>
 import Right from './right'
+import Return from '../components/returnTop'
+import footerHead from '../components/footer'
 import { mapState } from 'vuex'
 
 export default {
@@ -76,7 +80,9 @@ export default {
     }
   },
   components: {
-    Right
+    Right,
+    Return,
+    footerHead
   },
   head: {
     title: '首页'
