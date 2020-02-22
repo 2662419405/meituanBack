@@ -31,6 +31,10 @@ img {
   vertical-align: middle;
 }
 
+#nprogress .bar{
+  height: 4px!important;
+}
+
 @keyframes dong {
   from {
     transform: rotate(0);

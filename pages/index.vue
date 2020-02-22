@@ -23,6 +23,9 @@
         <el-menu-item index="4" @click=" $router.push('/order') ">
           <span>订单管理</span>
         </el-menu-item>
+        <el-menu-item index="5" @click=" $router.push('/time') ">
+          <span>时间轴</span>
+        </el-menu-item>
         <el-menu-item class="right">
           <el-dropdown @command="handleCommand">
             <span class="el-dropdown-link">
