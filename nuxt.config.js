@@ -1,3 +1,5 @@
+const db = require('./config/db')
+
 module.exports = {
   mode: 'universal',
   /*
@@ -23,10 +25,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [
-    'element-ui/lib/theme-chalk/index.css',
-    'assets/main.css'
-  ],
+  css: ['element-ui/lib/theme-chalk/index.css', 'assets/main.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -40,16 +39,19 @@ module.exports = {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
-  /*
-   ** Build configuration
-   */
+  axios: {
+    proxy: true
+  },
+  proxy: {
+    '/api/': 'http://localhost:4002/'
+  },
   build: {
     transpile: [/^element-ui/],
     /*

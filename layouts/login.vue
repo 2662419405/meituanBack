@@ -10,6 +10,11 @@
       <img src="/image/o_770659.jpg" alt />
       <img src="/image/o_899029.jpg" alt />
       <img src="/image/sh.jpg" alt />
+      <img src="/image/PChome.gif" alt />
+      <img src="/image/PCdetail.gif" alt />
+      <img src="/image/PC1.jpg" />
+      <img src="/image/PC2.jpg" />
+      <img src="/image/PC3.jpg" />
     </div>
     <div v-show="show">
       <nuxt-child />

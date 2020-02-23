@@ -9,4 +9,10 @@ const Meituan = model.getNames('meituan')
 const hashCode = require('../utils/hasCode') // 密码加盐
 const secret = dbName.secret
 
+// 获取全部用户
+code.get('/demo', async ctx => {
+  const obj = await Meituan.find({})
+  ctx.body = JSON.stringify(obj)
+})
+
 module.exports = code.routes()

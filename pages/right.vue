@@ -160,9 +160,10 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$message({
-            type: 'success',
-            message: '意见已经提交,正在处理,感谢你的反馈'
+          this.$notify({
+            title: '成功',
+            message: '意见已经提交,正在处理,感谢你的反馈',
+            type: 'success'
           })
           this.dialogFormVisible = false
         } else {
