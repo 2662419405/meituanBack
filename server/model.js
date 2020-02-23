@@ -50,9 +50,9 @@ const models = {
     // 页面标题
     sup: { type: String },
     // 是否支持随时退款
-    sui: { type: Boolean },
+    sui: { type: String },
     // 是否支持过期自动退款
-    guo: { type: Boolean },
+    guo: { type: String },
     // 90天内消费数量
     num: { type: Number },
     // 页面地址

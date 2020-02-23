@@ -95,7 +95,7 @@
         src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571768014502&di=67e12d4b16a14cb87ababe70962b01bc&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F8%2F5988171fd6ccb.jpg"
       />
     </div>
-    <el-dialog title="意见反馈" :visible.sync="dialogFormVisible">
+    <el-dialog title="意见反馈" :visible.sync="dialogFormVisible"  width="30%">
       <el-form :model="form" :rules="rules" ref="form">
         <el-form-item label="您的尊称" :label-width="formLabelWidth" prop="name">
           <el-input v-model="form.name" autocomplete="off" placeholder="Peanut" maxlength="8"></el-input>

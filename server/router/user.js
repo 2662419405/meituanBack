@@ -15,4 +15,10 @@ code.get('/demo', async ctx => {
   ctx.body = JSON.stringify(obj)
 })
 
+// 提交数据
+code.post('/order', async ctx => {
+  const payload = ctx.request.body
+  console.log(payload)
+})
+
 module.exports = code.routes()
