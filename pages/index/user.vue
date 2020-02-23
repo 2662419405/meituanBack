@@ -1,5 +1,7 @@
 <template>
-  <div class="main-container">我是</div>
+  <div class="main-container">
+    <span class="right_title">用户列表</span>
+  </div>
 </template>
 
 <script>

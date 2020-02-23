@@ -7,7 +7,7 @@
           <p>使用 nuxt + element,主要是练习一些vue的基本使用</p>
         </el-card>
       </el-timeline-item>
-      <el-timeline-item timestamp="2018/2/18" placement="top">
+      <el-timeline-item timestamp="2020/2/18" placement="top">
         <el-card>
           <h4>美团PC端完成</h4>
           <p>
@@ -28,7 +28,7 @@
           </p>
         </el-card>
       </el-timeline-item>
-      <el-timeline-item timestamp="2018/2/14" placement="top">
+      <el-timeline-item timestamp="2020/2/14" placement="top">
         <el-card>
           <h4>美团PC端完成</h4>
           <p>
@@ -37,7 +37,7 @@
           </p>
         </el-card>
       </el-timeline-item>
-      <el-timeline-item timestamp="2018/2/8" placement="top">
+      <el-timeline-item timestamp="2020/2/8" placement="top">
         <el-card>
           <h4>美团PC端制作</h4>
           <p>
