@@ -93,6 +93,14 @@
       <el-form-item>
         <el-button @click="addPing">新增团购信息</el-button>
       </el-form-item>
+      <el-form-item label="团购说明">
+        <div
+          class="quill-editor"
+          @change="onEditorChange($event)"
+          :content="form.tain"
+          v-quill:myQuillEditor="editorOption"
+        ></div>
+      </el-form-item>
       <el-form-item label="页面地址" prop="quanAddress">
         <el-input v-model="form.quanAddress" autocomplete="off"></el-input>
       </el-form-item>
@@ -126,6 +134,15 @@ export default {
   data() {
     return {
       dialogFormVisible: false,
+      editorOption: {
+        // some quill options
+        modules: {
+          toolbar: [
+            ['bold', 'italic', 'underline', 'strike'],
+            ['blockquote', 'code-block']
+          ]
+        }
+      },
       form: {
         xiao: '',
         name: '',
@@ -201,6 +218,9 @@ export default {
           return false
         }
       })
+    },
+    onEditorChange({ editor, html, text }) {
+      this.form.tain = html
     },
     resetForm(formName) {
       this.$refs[formName].resetFields()

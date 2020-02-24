@@ -25,11 +25,21 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['element-ui/lib/theme-chalk/index.css', 'assets/main.css'],
+  css: [
+    'quill/dist/quill.snow.css',
+    'quill/dist/quill.bubble.css',
+    'quill/dist/quill.core.css',
+    'element-ui/lib/theme-chalk/index.css',
+    'assets/main.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/route', ssr: false }, '@/plugins/element-ui'],
+  plugins: [
+    { src: '~/plugins/route', ssr: false },
+    { src: '~plugins/vue-quill-editor.js', ssr: false },
+    '@/plugins/element-ui'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
