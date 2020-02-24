@@ -19,7 +19,6 @@ code.get('/demo', async ctx => {
 // 提交数据
 code.post('/order', async ctx => {
   const payload = ctx.request.body
-  console.log(payload)
   const userModel = new Back(payload)
   let obj = await userModel.save()
   ctx.body = {

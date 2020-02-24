@@ -7,8 +7,14 @@
       <el-form-item label="销量" prop="xiao">
         <el-input v-model="form.xiao" autocomplete="off"></el-input>
       </el-form-item>
+      <el-form-item label="地址" prop="address">
+        <el-input v-model="form.address" autocomplete="off"></el-input>
+      </el-form-item>
       <el-form-item label="名称" prop="name">
         <el-input v-model="form.name" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="副标题" prop="oldName">
+        <el-input v-model="form.oldName" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="原先价格" prop="old">
         <el-input v-model="form.old" autocomplete="off"></el-input>
@@ -32,12 +38,7 @@
       <el-form-item>
         <el-button @click="addDomain">新增图片地址</el-button>
       </el-form-item>
-      <el-form-item label="地址" prop="address">
-        <el-input v-model="form.address" autocomplete="off"></el-input>
-      </el-form-item>
-      <el-form-item label="副标题" prop="sub">
-        <el-input v-model="form.sub" autocomplete="off"></el-input>
-      </el-form-item>
+
       <el-form-item label="页面标题" prop="sup">
         <el-input v-model="form.sup" autocomplete="off"></el-input>
       </el-form-item>
@@ -75,6 +76,9 @@
       <el-form-item>
         <el-button @click="addShang">新增商家列表</el-button>
       </el-form-item>
+      <el-form-item label="页面地址" prop="quanAddress">
+        <el-input v-model="form.quanAddress" autocomplete="off"></el-input>
+      </el-form-item>
       <!-- 团购信息 -->
       <el-form-item
         v-for="(domain, index) in form.tuans"
@@ -93,6 +97,9 @@
       <el-form-item>
         <el-button @click="addPing">新增团购信息</el-button>
       </el-form-item>
+      <el-form-item label="商品团购总价" prop="sub">
+        <el-input v-model="form.sub" autocomplete="off"></el-input>
+      </el-form-item>
       <el-form-item label="团购说明">
         <div
           class="quill-editor"
@@ -101,9 +108,7 @@
           v-quill:myQuillEditor="editorOption"
         ></div>
       </el-form-item>
-      <el-form-item label="页面地址" prop="quanAddress">
-        <el-input v-model="form.quanAddress" autocomplete="off"></el-input>
-      </el-form-item>
+
       <!-- 购买须知 -->
       <el-form-item label="有效期" prop="youxiao">
         <el-input v-model="form.youxiao" autocomplete="off"></el-input>
@@ -148,6 +153,7 @@ export default {
         name: '',
         old: '',
         new: '',
+        oldName: '',
         address: '',
         sub: '',
         sup: '',
@@ -214,6 +220,10 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           this.addOrder(this.form)
+          this.$message({
+            type: 'success',
+            message: '数据录入成功'
+          })
         } else {
           return false
         }
