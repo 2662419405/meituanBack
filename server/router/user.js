@@ -5,6 +5,7 @@ const koajwt = require('koa-jwt')
 // 加载mongodb数据库
 const dbName = require('../../config/db')
 const model = require('../model')
+const Back = model.getNames('back')
 const Meituan = model.getNames('meituan')
 const hashCode = require('../utils/hasCode') // 密码加盐
 const secret = dbName.secret
@@ -19,6 +20,12 @@ code.get('/demo', async ctx => {
 code.post('/order', async ctx => {
   const payload = ctx.request.body
   console.log(payload)
+  const userModel = new Back(payload)
+  let obj = await userModel.save()
+  ctx.body = {
+    code: 1,
+    message: '上传完成'
+  }
 })
 
 module.exports = code.routes()
