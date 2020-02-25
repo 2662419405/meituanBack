@@ -187,8 +187,8 @@ export default {
       },
       rules: {
         xiao: [{ required: true, message: '输入项不能为空', trigger: 'blur' }],
-        xiao: [{ required: true, message: '输入项不能为空', trigger: 'blur' }],
         name: [{ required: true, message: '输入项不能为空', trigger: 'blur' }],
+        oldName: [{ required: true, message: '输入项不能为空', trigger: 'blur' }],
         old: [{ required: true, message: '输入项不能为空', trigger: 'blur' }],
         new: [{ required: true, message: '输入项不能为空', trigger: 'blur' }],
         address: [

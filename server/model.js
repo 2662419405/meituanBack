@@ -17,8 +17,6 @@ const models = {
     sex: { type: String },
     // 昵称
     name: { type: String },
-    // 副标题
-    oldName: { type: String },
     // 地区
     address: { type: String },
     // 密码的盐
@@ -43,6 +41,8 @@ const models = {
     xiao: { type: String },
     // 名称
     name: { type: String },
+    // 副标题
+    oldName: { type: String },
     // 原先价格
     old: { type: String },
     // 新价格
