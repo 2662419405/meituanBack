@@ -18,12 +18,15 @@
           <span>用户展示</span>
         </el-menu-item>
         <el-menu-item index="3" @click=" $router.push('/shang') ">
-          <span>商品管理</span>
+          <span>首页商品</span>
         </el-menu-item>
-        <el-menu-item index="4" @click=" $router.push('/order') ">
+        <el-menu-item index="4" @click=" $router.push('/hot') ">
+          <span>热门商品</span>
+        </el-menu-item>
+        <el-menu-item index="5" @click=" $router.push('/order') ">
           <span>订单管理</span>
         </el-menu-item>
-        <el-menu-item index="5" @click=" $router.push('/time') ">
+        <el-menu-item index="6" @click=" $router.push('/time') ">
           <span>时间轴</span>
         </el-menu-item>
         <el-menu-item class="right">
@@ -79,7 +82,7 @@ export default {
       store.state.users.userinfo &&
       store.state.users.userinfo.name !== 'sh'
     ) {
-      // return redirect('/login') 最后加进去
+      return redirect('/login')
     }
   },
   components: {

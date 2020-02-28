@@ -70,6 +70,24 @@ const models = {
     yuyue: { type: String },
     tixing: { type: String },
     tishi: { type: String }
+  },
+  hot: {
+    // 首页标题
+    title: { type: String },
+    // 图片路径
+    imgUrls: { type: Array },
+    // 文本域
+    textArea: { type: String },
+    // 点赞列表
+    adds: { type: Array },
+    // 评论列表
+    speaks: { type: Array },
+    // 浏览数量
+    egg: { type: String },
+    // 发布者姓名
+    name: { type: String },
+    // 发布者头像
+    avatar: { type: String }
   }
 }
 

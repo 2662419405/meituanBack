@@ -134,7 +134,7 @@
 import { mapActions } from 'vuex'
 export default {
   head: {
-    title: '商品页面'
+    title: '首页商品'
   },
   data() {
     return {

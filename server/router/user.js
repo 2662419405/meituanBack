@@ -7,6 +7,7 @@ const dbName = require('../../config/db')
 const model = require('../model')
 const Back = model.getNames('back')
 const Meituan = model.getNames('meituan')
+const Hot = model.getNames('hot')
 const hashCode = require('../utils/hasCode') // 密码加盐
 const secret = dbName.secret
 
@@ -20,6 +21,17 @@ code.get('/demo', async ctx => {
 code.post('/order', async ctx => {
   const payload = ctx.request.body
   const userModel = new Back(payload)
+  let obj = await userModel.save()
+  ctx.body = {
+    code: 1,
+    message: '上传完成'
+  }
+})
+
+// 提交热门
+code.post('/hot', async ctx => {
+  const payload = ctx.request.body
+  const userModel = new Hot(payload)
   let obj = await userModel.save()
   ctx.body = {
     code: 1,

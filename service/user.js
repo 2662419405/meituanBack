@@ -7,3 +7,11 @@ export const getOrder = payload => {
     url: '/api/users/server/order'
   })
 }
+
+export const addHotOrder = payload => {
+  return Axios({
+    method: 'post',
+    data: payload,
+    url: '/api/users/server/hot'
+  })
+}
