@@ -7,6 +7,12 @@
       <el-form-item label="页面标题" prop="title">
         <el-input v-model="form.title" autocomplete="off"></el-input>
       </el-form-item>
+      <el-form-item label="发布者姓名" prop="name">
+        <el-input v-model="form.name" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="发布者头像" prop="avatar">
+        <el-input v-model="form.avatar" autocomplete="off"></el-input>
+      </el-form-item>
       <!-- 图片url地址 -->
       <el-form-item
         v-for="(domain, index) in form.imgUrls"
@@ -69,10 +75,15 @@ export default {
         // 文本域
         textArea: '',
         // 发布者姓名
-        name: '后台_Sh'
+        name: '',
+        avatar: ''
       },
       rules: {
         title: [{ required: true, message: '输入项不能为空', trigger: 'blur' }],
+        name: [{ required: true, message: '输入项不能为空', trigger: 'blur' }],
+        avatar: [
+          { required: true, message: '输入项不能为空', trigger: 'blur' }
+        ],
         textArea: [
           { required: true, message: '输入项不能为空', trigger: 'blur' }
         ]
