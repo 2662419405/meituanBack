@@ -87,7 +87,9 @@ const models = {
     // 发布者姓名
     name: { type: String },
     // 发布者头像
-    avatar: { type: String }
+    avatar: { type: String },
+    // 分类:
+    select: { type: String }
   }
 }
 

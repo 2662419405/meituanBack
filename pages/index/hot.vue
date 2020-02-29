@@ -7,6 +7,16 @@
       <el-form-item label="页面标题" prop="title">
         <el-input v-model="form.title" autocomplete="off"></el-input>
       </el-form-item>
+      <el-form-item label="选择分类" prop="select">
+        <el-select v-model="form.select" placeholder="请选择分类">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item label="发布者姓名" prop="name">
         <el-input v-model="form.name" autocomplete="off"></el-input>
       </el-form-item>
@@ -54,6 +64,36 @@ export default {
   },
   data() {
     return {
+      options: [
+        {
+          value: '旅行',
+          label: '旅行'
+        },
+        {
+          value: '丽人',
+          label: '丽人'
+        },
+        {
+          value: '电影',
+          label: '电影'
+        },
+        {
+          value: '结婚',
+          label: '结婚'
+        },
+        {
+          value: '教培',
+          label: '教培'
+        },
+        {
+          value: '家装',
+          label: '家装'
+        },
+        {
+          value: '选项7',
+          label: '亲子'
+        }
+      ],
       editorOption: {
         // some quill options
         modules: {
@@ -66,10 +106,12 @@ export default {
       form: {
         // 首页标题
         title: '',
+        select: '',
         // 图片路径
         imgUrls: [
           {
-            url: ''
+            url: '',
+            key: new Date()
           }
         ],
         // 文本域
