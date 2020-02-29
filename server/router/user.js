@@ -31,7 +31,7 @@ code.post('/order', async ctx => {
 // 提交热门
 code.post('/hot', async ctx => {
   const payload = ctx.request.body
-  const userModel = new Hot(payload)
+  const userModel = new Hot({ payload, createTime: new Date() })
   let obj = await userModel.save()
   ctx.body = {
     code: 1,
