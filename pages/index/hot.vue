@@ -90,7 +90,7 @@ export default {
           label: '家装'
         },
         {
-          value: '选项7',
+          value: '亲子',
           label: '亲子'
         }
       ],
