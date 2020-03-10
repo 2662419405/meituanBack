@@ -24,7 +24,7 @@
           <span>热门商品</span>
         </el-menu-item>
         <el-menu-item index="5" @click=" $router.push('/order') ">
-          <span>订单管理</span>
+          <span>外卖管理</span>
         </el-menu-item>
         <el-menu-item index="6" @click=" $router.push('/time') ">
           <span>时间轴</span>
@@ -82,7 +82,7 @@ export default {
       store.state.users.userinfo &&
       store.state.users.userinfo.name !== 'sh'
     ) {
-      return redirect('/login')
+      // return redirect('/login')
     }
   },
   components: {

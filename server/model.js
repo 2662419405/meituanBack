@@ -92,6 +92,36 @@ const models = {
     select: { type: String },
     // 创建时间
     createTime: { type: String }
+  },
+  mai: {
+    // 标题
+    title: { type: String },
+    // 评分
+    ping: { type: String },
+    // 销售
+    show: { type: String },
+    // 地址
+    address: { type: String },
+    // 图片
+    imgUrl: { type: String },
+    // 配送费
+    pei: { type: String },
+    // 起送价格
+    start: { type: String },
+    // 人均
+    ren: { type: String },
+    // 特色
+    te: { type: String },
+    // 标签
+    tags: { type: Object },
+    // 商品
+    shangs: { type: Object },
+    // 是否是美团专送
+    zhuan: { type: String },
+    // 公告
+    gong: { type: String },
+    // 详细地址
+    xiang: { type: String }
   }
 }
 
