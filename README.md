@@ -1,5 +1,19 @@
 # :100:Nuxt + Koa + MongoDB 美团后台
 
+## 其余端支持
+
+* 美团电脑网页 React + Koa + Mongoose <a href="https://github.com/2662419405/meituan">开发完毕</a> :tada:
+
+* 美团手机网页 Dva + umi + koa + Mongoose <a href="https://github.com/2662419405/meituanAn">开发完毕</a> :100:
+
+* 美团后台管理 Nuxt + koa + Mongoose <a href="https://github.com/2662419405/meituanBack">开发完毕</a> :rainbow:
+
+* 微信小程序 Tora <a href="https://github.com/2662419405/meituanWx">开发完毕:fire:</a>
+
+* Taro多端支持 <a href="https://github.com/2662419405/meituan-taro">正在开发</a>
+
+* 美团APP ReactNative + koa + Mongoose <a href="https://github.com/2662419405/meituanApp">开发一部分</a>
+
 ## 计划
 
 - [x] 图片预加载
