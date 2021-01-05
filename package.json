@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cross-env": "^5.2.0",
     "element-ui": "^2.4.11",
     "jsonwebtoken": "^8.5.1",
