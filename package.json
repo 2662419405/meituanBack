@@ -18,7 +18,7 @@
     "axios": "^0.19.2",
     "cross-env": "^5.2.0",
     "element-ui": "^2.4.11",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "koa": "^2.6.2",
     "koa-body": "^4.1.1",
     "koa-jwt": "^3.6.0",
